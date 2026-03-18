@@ -262,7 +262,7 @@ body {
 ════════════════════════════════ */
 .floating-menu-btn {
   position: fixed;
-  bottom: 400px;
+  bottom: 48px;
   right: 20px;
   padding: 12px 22px;
   border-radius: 50px;

@@ -407,21 +407,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  function scrollToSection(category, subcategory) {
-    const target = document.querySelector(`[data-menu="${currentMenu}"][data-category="${category}"][data-subcategory="${subcategory}"]`);
-    if (target) {
-      setTimeout(() => {
-        const headerOffset = 20;
-        const elementPosition = target.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+function scrollToSection(category, subcategory) {
+  const target = document.querySelector(
+    `.subcategory-header[data-menu="${currentMenu}"][data-category="${category}"][data-subcategory="${subcategory}"]`
+  );
+  if (!target) return;
 
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
-      }, 300);
-    }
+  const grid = target.nextElementSibling;
+  if (grid && grid.style.display === 'none') {
+    grid.style.display = 'grid';
+    target.querySelector('.subcategory-toggle').textContent = '−';
   }
+
+  setTimeout(() => {
+    const offsetPosition = target.getBoundingClientRect().top + window.pageYOffset - 80;
+    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+  }, 100);
+}
 
 function renderMenu(menuKey) {
   const menu = menuData[menuKey];
@@ -446,8 +448,11 @@ function renderMenu(menuKey) {
 
     Object.entries(categoryData.subcategories).forEach(([subName, items]) => {
       // Subcategory header with toggle
-      const subHeader = document.createElement("div");
+    const subHeader = document.createElement("div");
       subHeader.className = "subcategory-header";
+      subHeader.setAttribute("data-menu", menuKey);
+      subHeader.setAttribute("data-category", categoryName);
+      subHeader.setAttribute("data-subcategory", subName);
       subHeader.innerHTML = `
         <span class="subcategory-label">${subName}</span>
         <span class="subcategory-toggle">+</span>
