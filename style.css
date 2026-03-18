@@ -41,7 +41,7 @@ body {
   background-image: url('https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1920');
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
+  background-attachment: scroll;
   display: flex;
   align-items: flex-end;
 }
@@ -86,7 +86,9 @@ body {
   padding: 32px 20px 120px;
   background: #f0f2f5;
 }
-
+#menuContainer:empty {
+  display: none;
+}
 .menu-category {
   margin-bottom: 24px;
   background: transparent;
@@ -260,7 +262,7 @@ body {
 ════════════════════════════════ */
 .floating-menu-btn {
   position: fixed;
-  bottom: 24px;
+  bottom: 400px;
   right: 20px;
   padding: 12px 22px;
   border-radius: 50px;
