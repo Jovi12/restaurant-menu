@@ -38,14 +38,19 @@ body {
 .hero {
   position: relative;
   height: 100vh;
-  background-image: url('https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1920');
+  background-image: url('/image.jpg');
   background-size: cover;
-  background-position: center;
+  background-position: center 60%;
   background-attachment: scroll;
   display: flex;
   align-items: flex-end;
 }
-
+.hero-logo {
+  width: 200px;
+  margin-bottom: 16px;
+  display: block;
+  filter: brightness(0) invert(1) drop-shadow(0 0 0.5px white);
+}
 .hero-overlay {
   position: absolute;
   inset: 0;
@@ -495,7 +500,12 @@ body {
    RESPONSIVE
 ════════════════════════════════ */
 @media (max-width: 768px) {
-  .hero { background-attachment: scroll; }
+   .hero {
+    background-attachment: scroll;
+    background-position: center center;
+    background-size: contain;
+    background-color: #0d0d0d;
+  }
   #menuContainer { padding: 20px 12px 120px; }
   .menu-panel { max-height: 82vh; }
   .floating-menu-btn { bottom: 20px; right: 16px; padding: 11px 18px; }
