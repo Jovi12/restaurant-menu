@@ -201,14 +201,36 @@ body {
 .nonveg-dot::after { background: #c0392b; }
 
 /* Card name */
+/* Replace existing .card-name */
 .card-name {
   font-size: 1rem;
   font-weight: 700;
   color: #1a1a1a;
-  margin-bottom: 6px;
   line-height: 1.3;
 }
 
+/* Add these new rules */
+.card-name-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.card-price {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ff6b35;
+  white-space: nowrap;
+}
+.category-timing {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #e07b39;
+  margin: 2px 0 10px;
+  letter-spacing: 0.01em;
+}
 /* Orange meta — grams • cal • price */
 .card-meta {
   font-size: 0.85rem;
